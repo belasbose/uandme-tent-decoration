@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#173b32" />
+  <meta name="description" content="U&Me Tent and Decoration — beautiful tent setups, wedding stages, and event decoration for your special occasions." />
+  <title>U&Me Tent and Decoration</title>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <style>
+    :root {
+      --green: #173b32;
+      --green-2: #285749;
+      --cream: #f8f6f0;
+      --gold: #c5a66a;
+      --ink: #202823;
+      --muted: #69736c;
+      --white: #fff;
+      --radius: 18px;
+      --shadow: 0 14px 38px rgba(22, 44, 35, .10);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: var(--ink); background: #fff; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .container { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    .topbar { background: var(--green); color: #fff; font-size: .88rem; padding: 8px 0; text-align: center; }
+    header { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.94); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(23,59,50,.08); }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 22px; }
+    .brand { display: flex; align-items: center; gap: 11px; font-weight: 800; letter-spacing: -.04em; color: var(--green); font-size: 1.1rem; line-height: 1.1; }
+    .brand-mark { width: 42px; height: 42px; border-radius: 13px; background: var(--green); color: var(--gold); display: grid; place-items: center; font-weight: 900; font-size: 1rem; letter-spacing: -.08em; }
+    .brand small { display: block; color: var(--muted); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; margin-top: 5px; }
+    .nav-links { display: flex; align-items: center; gap: 27px; font-size: .94rem; font-weight: 650; }
+    .nav-links a:hover { color: var(--gold); }
+    .btn { border: 0; display: inline-flex; align-items: center; justify-content: center; gap: 9px; border-radius: 999px; padding: 13px 21px; font-weight: 750; cursor: pointer; transition: transform .2s, background .2s, box-shadow .2s; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--green); color: #fff; box-shadow: 0 8px 22px rgba(23,59,50,.18); }
+    .btn-primary:hover { background: var(--green-2); }
+    .btn-light { background: #fff; color: var(--green); }
+    .menu-toggle { display: none; border: 1px solid #e4e8e3; background: #fff; color: var(--green); border-radius: 12px; padding: 10px 12px; font-size: 1.25rem; }
+    .hero { background: var(--cream); overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1.02fr .98fr; gap: 48px; align-items: center; padding-top: 68px; padding-bottom: 72px; }
+    .eyebrow { display: inline-flex; gap: 9px; align-items: center; color: var(--green-2); background: #e9eee8; border-radius: 999px; padding: 7px 13px; text-transform: uppercase; letter-spacing: .12em; font-size: .72rem; font-weight: 800; }
+    .eyebrow:before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--gold); }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { font-size: clamp(2.6rem, 5vw, 4.7rem); line-height: 1.04; letter-spacing: -.06em; margin: 22px 0; color: var(--green); }
+    h1 span { color: var(--gold); }
+    .hero-copy { color: var(--muted); max-width: 510px; font-size: 1.08rem; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+    .trust-row { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 30px; color: var(--muted); font-size: .88rem; }
+    .trust-row span:before { content: "✓"; color: var(--green-2); font-weight: 900; margin-right: 7px; }
+    .hero-image-wrap { position: relative; min-height: 450px; }
+    .hero-image { position: absolute; inset: 0 0 0 15px; width: calc(100% - 15px); height: 100%; object-fit: cover; border-radius: 180px 180px 24px 24px; box-shadow: var(--shadow); }
+    .image-note { position: absolute; bottom: 24px; left: 0; background: #fff; border-radius: 15px; padding: 15px 18px; box-shadow: var(--shadow); max-width: 225px; }
+    .image-note strong { display: block; color: var(--green); }
+    .image-note small { color: var(--muted); }
+    section { padding: 82px 0; }
+    .section-head { text-align: center; max-width: 650px; margin: 0 auto 38px; }
+    .section-head h2 { color: var(--green); font-size: clamp(2rem, 3.4vw, 3rem); line-height: 1.12; letter-spacing: -.045em; margin: 14px 0; }
+    .section-head p { color: var(--muted); margin-bottom: 0; }
+    .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .service-card { border: 1px solid #e9ece7; border-radius: var(--radius); padding: 26px; background: #fff; transition: transform .25s, box-shadow .25s; }
+    .service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+    .service-icon { width: 50px; height: 50px; border-radius: 15px; display: grid; place-items: center; background: #edf1eb; color: var(--green); font-size: 1.45rem; margin-bottom: 19px; }
+    .service-card h3 { color: var(--green); margin-bottom: 8px; font-size: 1.18rem; }
+    .service-card p { color: var(--muted); font-size: .94rem; margin-bottom: 0; }
+    .gallery-section { background: var(--cream); }
+    .gallery { display: grid; grid-template-columns: 1.2fr 1fr 1fr; grid-template-rows: 220px 220px; gap: 15px; }
+    .gallery-item { position: relative; overflow: hidden; border-radius: 16px; background: #dce3dc; }
+    .gallery-item:first-child { grid-row: span 2; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+    .gallery-item:hover img { transform: scale(1.06); }
+    .gallery-label { position: absolute; left: 13px; right: 13px; bottom: 13px; background: rgba(255,255,255,.94); border-radius: 11px; padding: 10px 13px; font-weight: 750; color: var(--green); font-size: .9rem; }
+    .about-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 55px; align-items: center; }
+    .about-image { width: 100%; height: 430px; object-fit: cover; border-radius: var(--radius); }
+    .about-copy h2 { font-size: clamp(2rem, 3.5vw, 3rem); color: var(--green); line-height: 1.1; letter-spacing: -.05em; margin: 15px 0 18px; }
+    .about-copy p { color: var(--muted); }
+    .feature-list { list-style: none; padding: 0; margin: 23px 0 28px; display: grid; gap: 12px; }
+    .feature-list li { display: flex; gap: 10px; align-items: flex-start; }
+    .feature-list li:before { content: "✓"; display: grid; place-items: center; flex: 0 0 23px; height: 23px; border-radius: 50%; background: #e9eee8; color: var(--green); font-size: .8rem; font-weight: 900; }
+    .cta { padding: 0 0 82px; }
+    .cta-panel { background: var(--green); color: #fff; padding: 48px; border-radius: 25px; display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+    .cta-panel h2 { font-size: clamp(1.8rem, 3vw, 2.6rem); line-height: 1.12; letter-spacing: -.04em; margin-bottom: 10px; }
+    .cta-panel p { color: #d2ded6; margin-bottom: 0; max-width: 560px; }
+    .contact-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 38px; }
+    .contact-copy h2 { font-size: 2.5rem; color: var(--green); letter-spacing: -.05em; line-height: 1.1; }
+    .contact-copy p { color: var(--muted); }
+    .contact-info { display: grid; gap: 14px; margin-top: 25px; }
+    .contact-info div { display: flex; align-items: center; gap: 12px; }
+    .contact-info .mini-icon { width: 40px; height: 40px; border-radius: 12px; background: #edf1eb; color: var(--green); display: grid; place-items: center; }
+    .contact-info small { display: block; color: var(--muted); }
+    .contact-form { background: var(--cream); padding: 28px; border-radius: var(--radius); display: grid; gap: 14px; }
+    .field { display: grid; gap: 6px; }
+    .field label { font-weight: 700; font-size: .9rem; color: var(--green); }
+    .field input, .field select, .field textarea { width: 100%; border: 1px solid #dfe5dc; border-radius: 11px; padding: 13px 14px; background: #fff; font: inherit; color: var(--ink); outline: none; }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--green-2); box-shadow: 0 0 0 3px rgba(40,87,73,.1); }
+    .field textarea { min-height: 100px; resize: vertical; }
+    footer { background: #102b24; color: #d6e0d9; padding: 28px 0; font-size: .9rem; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 15px; flex-wrap: wrap; }
+    .footer-inner strong { color: #fff; }
+    .whatsapp-float { position: fixed; right: 18px; bottom: 18px; z-index: 60; width: 58px; height: 58px; border-radius: 50%; background: #20bf68; color: white; display: grid; place-items: center; box-shadow: 0 8px 25px rgba(0,0,0,.2); font-size: 1.55rem; transition: transform .2s; }
+    .whatsapp-float:hover { transform: scale(1.07); }
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; } .reveal { opacity: 1; transform: none; } }
+    @media (max-width: 850px) {
+      .nav-links { gap: 15px; }
+      .nav-links .nav-contact { display: none; }
+      .hero-grid { grid-template-columns: 1fr; gap: 35px; padding-top: 48px; }
+      .hero-image-wrap { min-height: 390px; }
+      .hero-image { inset-left: 0; left: 0; width: 100%; border-radius: 120px 120px 20px 20px; }
+      .services { grid-template-columns: repeat(2, 1fr); }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+      .about-image { height: 350px; }
+      .cta-panel { padding: 35px; align-items: flex-start; flex-direction: column; }
+    }
+    @media (max-width: 600px) {
+      .container { width: min(100% - 30px, 1120px); }
+      .topbar { font-size: .78rem; }
+      .nav { min-height: 68px; }
+      .brand { font-size: .98rem; }
+      .brand-mark { width: 38px; height: 38px; }
+      .menu-toggle { display: inline-flex; }
+      .nav-links { display: none; position: absolute; top: 68px; left: 0; right: 0; padding: 16px 22px 22px; background: white; border-bottom: 1px solid #e8ece7; flex-direction: column; align-items: stretch; gap: 0; box-shadow: 0 15px 25px rgba(0,0,0,.06); }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 12px 0; }
+      .nav-links .nav-contact { display: inline-flex; margin-top: 8px; justify-content: center; }
+      h1 { font-size: clamp(2.55rem, 13vw, 3.7rem); }
+      .hero-grid { padding-top: 39px; padding-bottom: 50px; }
+      .hero-copy { font-size: 1rem; }
+      .hero-image-wrap { min-height: 330px; }
+      .image-note { bottom: 14px; max-width: 205px; padding: 12px 14px; }
+      section { padding: 62px 0; }
+      .services { grid-template-columns: 1fr; gap: 14px; }
+      .service-card { padding: 22px; }
+      .gallery { grid-template-columns: 1fr 1fr; grid-template-rows: 230px 165px 165px; gap: 10px; }
+      .gallery-item:first-child { grid-column: span 2; grid-row: auto; }
+      .gallery-label { font-size: .78rem; padding: 8px 10px; }
+      .about-image { height: 290px; }
+      .cta { padding-bottom: 60px; }
+      .cta-panel { padding: 28px 23px; }
+      .contact-form { padding: 20px; }
+      .footer-inner { justify-content: center; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">Making your special moments beautiful ✦ Tent • Wedding • Event Decoration</div>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="U&Me home">
+        <span class="brand-mark">U&M</span>
+        <span>U&Me<small>Tent and Decoration</small></span>
+      </a>
+      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#about">About</a>
+        <a class="btn btn-primary nav-contact" href="#contact">Contact Us ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <span class="eyebrow">Your day, beautifully arranged</span>
+          <h1>Beautiful spaces.<br><span>Unforgettable</span><br>moments.</h1>
+          <p class="hero-copy">From elegant wedding stages to welcoming event tents, we help turn your special occasions into memories worth keeping.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Plan Your Event <span>↗</span></a>
+            <a class="btn" style="border:1px solid #d9dfd7;color:var(--green)" href="#gallery">View Our Work</a>
+          </div>
+          <div class="trust-row"><span>Thoughtful designs</span><span>Events made special</span></div>
+        </div>
+        <div class="hero-image-wrap reveal">
+          <img class="hero-image" src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1200&q=85" alt="Elegant event venue with beautiful decoration" fetchpriority="high">
+          <div class="image-note"><strong>Every detail matters</strong><small>Designed around your occasion</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">What we do</span>
+          <h2>Everything you need<br>for a special occasion</h2>
+          <p>Beautiful setups, carefully arranged to suit your celebration and your style.</p>
+        </div>
+        <div class="services">
+          <article class="service-card reveal"><div class="service-icon">♧</div><h3>Tent Setup</h3><p>Comfortable, well-arranged tent setups for gatherings, celebrations, and outdoor events.</p></article>
+          <article class="service-card reveal"><div class="service-icon">✿</div><h3>Wedding Decoration</h3><p>Elegant decorative touches to make your wedding day feel warm, beautiful, and memorable.</p></article>
+          <article class="service-card reveal"><div class="service-icon">✧</div><h3>Stage Decoration</h3><p>Beautiful stage styling for weddings, engagements, receptions, and family functions.</p></article>
+          <article class="service-card reveal"><div class="service-icon">☼</div><h3>Lighting & Ambience</h3><p>Decorative lighting to create the right atmosphere for your event and venue.</p></article>
+          <article class="service-card reveal"><div class="service-icon">❀</div><h3>Birthday & Parties</h3><p>Festive decorations for birthdays, anniversaries, and get-togethers.</p></article>
+          <article class="service-card reveal"><div class="service-icon">♡</div><h3>Custom Event Setup</h3><p>Have a different idea in mind? Tell us about your event and we can discuss a setup.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery-section" id="gallery">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">A little inspiration</span>
+          <h2>Setups that make<br>moments feel magical</h2>
+          <p>Explore decoration inspiration for your next celebration.</p>
+        </div>
+        <div class="gallery">
+          <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1000&q=80" alt="Elegant wedding reception setup" loading="lazy"><div class="gallery-label">Wedding & Reception</div></div>
+          <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=800&q=80" alt="Beautiful table decoration" loading="lazy"><div class="gallery-label">Event Styling</div></div>
+          <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1507504031003-b417219a0dec?auto=format&fit=crop&w=800&q=80" alt="Outdoor event lights" loading="lazy"><div class="gallery-label">Outdoor Celebrations</div></div>
+          <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1478146896981-b80fe463b330?auto=format&fit=crop&w=800&q=80" alt="Floral event decoration" loading="lazy"><div class="gallery-label">Floral Details</div></div>
+          <div class="gallery-item reveal"><img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80" alt="Wedding dinner arrangement" loading="lazy"><div class="gallery-label">Special Gatherings</div></div>
+        </div>
+        <p style="text-align:center;color:var(--muted);font-size:.82rem;margin:18px 0 0">Gallery images are for design inspiration. Replace them with your own event photos for the final website.</p>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container about-grid">
+        <div class="reveal"><img class="about-image" src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=1000&q=85" alt="Tastefully decorated celebration table" loading="lazy"></div>
+        <div class="about-copy reveal">
+          <span class="eyebrow">About U&Me</span>
+          <h2>Your celebration deserves a beautiful setting.</h2>
+          <p>At U&Me Tent and Decoration, we believe the right setting makes every occasion feel more special. Whether you're planning a wedding, a family function, or a party, we're here to help you shape your ideas into a welcoming event space.</p>
+          <ul class="feature-list">
+            <li>Decoration ideas to match your occasion</li>
+            <li>Options for different event styles and spaces</li>
+            <li>Friendly communication from enquiry to planning</li>
+          </ul>
+          <a class="btn btn-primary" href="#contact">Let's Talk About Your Event ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="cta">
+      <div class="container">
+        <div class="cta-panel reveal">
+          <div><h2>Planning something special?</h2><p>Tell us your event date and what you have in mind. Let's start planning a beautiful setup together.</p></div>
+          <a class="btn btn-light" href="#contact">Get in Touch ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <section id="contact">
+      <div class="container contact-grid">
+        <div class="contact-copy reveal">
+          <span class="eyebrow">Contact us</span>
+          <h2>Let's make it memorable.</h2>
+          <p>Share a few details about your event. The enquiry form will open WhatsApp with your message ready to send.</p>
+          <div class="contact-info">
+            <div><span class="mini-icon">✆</span><span><strong>Phone / WhatsApp</strong><small>+91 97451 52552</small></span></div>
+            <div><span class="mini-icon">⌖</span><span><strong>Service area</strong><small>Vellarikundu, Kasaragod, Kerala · PIN 671533</small></span></div>
+            <div><span class="mini-icon">◷</span><span><strong>Enquiries</strong><small>Tell us your event date and requirements</small></span></div>
+          </div>
+        </div>
+        <form class="contact-form reveal" id="enquiry-form">
+          <div class="field"><label for="customer-name">Your name</label><input id="customer-name" name="name" placeholder="Enter your name" required></div>
+          <div class="field"><label for="event-type">Type of event</label><select id="event-type" name="event" required><option value="">Choose an event</option><option>Wedding / Reception</option><option>Tent setup</option><option>Stage decoration</option><option>Birthday / Party</option><option>Other function</option></select></div>
+          <div class="field"><label for="event-date">Event date</label><input id="event-date" name="date" type="date"></div>
+          <div class="field"><label for="event-details">Tell us more</label><textarea id="event-details" name="details" placeholder="Location, number of guests, decoration ideas..."></textarea></div>
+          <button class="btn btn-primary" type="submit">Send Enquiry on WhatsApp ↗</button>
+          <small style="color:var(--muted)">Your enquiry will be prepared for WhatsApp. Please review the message before sending.</small>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span><strong>U&Me Tent and Decoration</strong> · Making moments beautiful</span>
+      <span>© <span id="year"></span> U&Me. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" id="whatsapp-float" href="#" aria-label="Contact U&Me on WhatsApp" title="WhatsApp">✆</a>
+
+  <script>
+    // IMPORTANT: Replace this with your WhatsApp number including country code,
+    // without +, spaces, or dashes. Example for India: 919876543210
+    const WHATSAPP_NUMBER = "919745152552";
+
+    function openWhatsApp(message) {
+      if (!/^91\d{10}$/.test(WHATSAPP_NUMBER)) {
+        alert("Please add your WhatsApp number in the website code first. Find WHATSAPP_NUMBER near the bottom of the HTML file.");
+        return;
+      }
+      const url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message);
+      window.open(url, "_blank", "noopener,noreferrer");
+    }
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById("whatsapp-float").addEventListener("click", function (e) {
+      e.preventDefault();
+      openWhatsApp("Hi U&Me Tent and Decoration! I would like to enquire about your services.");
+    });
+
+    document.getElementById("enquiry-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const name = document.getElementById("customer-name").value.trim();
+      const event = document.getElementById("event-type").value;
+      const date = document.getElementById("event-date").value || "Not decided yet";
+      const details = document.getElementById("event-details").value.trim() || "No extra details yet";
+      const message = `Hello U&Me Tent and Decoration!\n\nI'd like to enquire about an event.\nName: ${name}\nEvent: ${event}\nDate: ${date}\nDetails: ${details}`;
+      openWhatsApp(message);
+    });
+
+    const menuButton = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+    menuButton.addEventListener("click", function () {
+      const isOpen = navLinks.classList.toggle("open");
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+      menuButton.textContent = isOpen ? "✕" : "☰";
+    });
+    navLinks.querySelectorAll("a").forEach(link => link.addEventListener("click", () => {
+      navLinks.classList.remove("open");
+      menuButton.setAttribute("aria-expanded", "false");
+      menuButton.textContent = "☰";
+    }));
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
